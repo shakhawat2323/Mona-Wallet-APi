@@ -1,0 +1,568 @@
+{
+  "info": {
+    "_postman_id": "a649df62-af16-4301-8bf1-85929248c7ce",
+    "name": "Digitale Wallet",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47557672",
+    "_collection_link": "https://shakhawat0226-6164189.postman.co/workspace/Md-Shakhawat-Islam's-Workspace~83fd48bf-7549-44e8-8979-6baeb27625fe/collection/47557672-a649df62-af16-4301-8bf1-85929248c7ce?action=share&source=collection_link&creator=47557672"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Registration",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"name\":\"Agent\" ,\r\n  \"email\": \"agent333e@gmail.com\",\r\n  \"password\": \"Fastuser23*\"\r\n//  \"email\": \"agent33e@gmail.com\",\r\n//   \"password\": \"Fastuser23*\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/register",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"email\": \"agent33e@gmail.com\",\r\n  \"password\": \"Fastuser23*\"\r\n  // agent  \"email\": \"agent33e@gmail.com\",\r\n//   \"password\": \"Fastuser23*\"\r\n\r\n \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/login",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n   \"email\": \"super@gmail.com\",\r\n   \"password\":\"12345678\"\r\n \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/login",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGFjYjM2ODdmODQ4ZWNjODgxZDU4MjYiLCJlbWFpbCI6InJvaGltYTNzMjYyMjQzQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU2MTY2MDAzLCJleHAiOjE3NTg3NTgwMDN9.KVBH6zQW2OxT7C7M0RmNKeIM75sey_pdui0b-lkC9to",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"name\": \"User Two\",  \r\n   \"email\": \"usertwo@gmail.com\"\r\n \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/refrefreshToken",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "refrefreshToken"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "wallet",
+      "item": [
+        {
+          "name": "my wallet",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJlNTk1NzkwMDhlNzBiYTAyODMiLCJlbWFpbCI6ImFnZW50MzMzZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NjUzMzYxNiwiZXhwIjoxNzU2NjIwMDE2fQ.JzWQFKlIEPZpTiN5ZA2XgpVwPLCy7y9iT0eKORhI42o",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/wallet/me",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "wallet", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add-money",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJlNTk1NzkwMDhlNzBiYTAyODMiLCJlbWFpbCI6ImFnZW50MzMzZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NjUzMzYxNiwiZXhwIjoxNzU2NjIwMDE2fQ.JzWQFKlIEPZpTiN5ZA2XgpVwPLCy7y9iT0eKORhI42o",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"walletId\": \"68b292e59579008e70ba0285\",\r\n  \"amount\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/wallet/add-money",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "wallet", "add-money"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "withdraw",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJlNTk1NzkwMDhlNzBiYTAyODMiLCJlbWFpbCI6ImFnZW50MzMzZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NjUzMzYxNiwiZXhwIjoxNzU2NjIwMDE2fQ.JzWQFKlIEPZpTiN5ZA2XgpVwPLCy7y9iT0eKORhI42o",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"walletId\": \"68b292e59579008e70ba0285\",\r\n  \"amount\": 10\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/wallet/withdraw",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "wallet", "withdraw"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "send-money",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJlNTk1NzkwMDhlNzBiYTAyODMiLCJlbWFpbCI6ImFnZW50MzMzZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NjUzMzYxNiwiZXhwIjoxNzU2NjIwMDE2fQ.JzWQFKlIEPZpTiN5ZA2XgpVwPLCy7y9iT0eKORhI42o",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"receiverWalletId\": \"68b292e59579008e70ba0285\",\r\n  \"amount\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/wallet/send-money",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "wallet", "send-money"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "transactions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJlNTk1NzkwMDhlNzBiYTAyODMiLCJlbWFpbCI6ImFnZW50MzMzZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NjUzMzYxNiwiZXhwIjoxNzU2NjIwMDE2fQ.JzWQFKlIEPZpTiN5ZA2XgpVwPLCy7y9iT0eKORhI42o",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/wallet/transactions/me",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "wallet", "transactions", "me"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Agnet",
+      "item": [
+        {
+          "name": "agent cash-in",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJhZDk1NzkwMDhlNzBiYTAyN2EiLCJlbWFpbCI6ImFnZW50MzNlQGdtYWlsLmNvbSIsInJvbGUiOiJBR0VOVCIsImlhdCI6MTc1NjUzMzg1MCwiZXhwIjoxNzU2NjIwMjUwfQ.QBnBFHlHpzslqmnhXsIRW_UMH9pmGMLMfgvY8DvyKhY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userWalletId\": \"68b031ef0f28809f6b9a834a\",\r\n  \"amount\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/agent/cash-in",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "agent", "cash-in"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "agent cash-out",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIyOTJhZDk1NzkwMDhlNzBiYTAyN2EiLCJlbWFpbCI6ImFnZW50MzNlQGdtYWlsLmNvbSIsInJvbGUiOiJBR0VOVCIsImlhdCI6MTc1NjUzMzg1MCwiZXhwIjoxNzU2NjIwMjUwfQ.QBnBFHlHpzslqmnhXsIRW_UMH9pmGMLMfgvY8DvyKhY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userWalletId\": \"68b031ef0f28809f6b9a834a\",\r\n  \"amount\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/agent/cash-out",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "agent", "cash-out"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/users",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "admin", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Agents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/agents",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "admin", "agents"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Wallets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/wallets",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "admin", "wallets"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "transactions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/transactions",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "admin", "transactions"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Block Wallet",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/wallets/block/68b030422bcce3dfbb82e182",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "wallets",
+                "block",
+                "68b030422bcce3dfbb82e182"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unblock Wallet",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/wallets/unblock/68b030422bcce3dfbb82e182",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "wallets",
+                "unblock",
+                "68b030422bcce3dfbb82e182"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SUSPENDED AGENT",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/agents/suspend/68b030422bcce3dfbb82e180",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "agents",
+                "suspend",
+                "68b030422bcce3dfbb82e180"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "APPROVED  AGENT",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admin/agents/approve/68b030422bcce3dfbb82e180",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "agents",
+                "approve",
+                "68b030422bcce3dfbb82e180"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "USER to AGENT / AGENT to USER",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGIwMzBjY2JhOTNjNjEzNGYwODE1NjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc1NjUzMzk4NCwiZXhwIjoxNzU2NjIwMzg0fQ.xzVJoXdb2lHipygX7TuUYPNBI2ekfrmX7mHN3OeMN4I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"role\":\"AGENT\"\r\n \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/68b030422bcce3dfbb82e180",
+              "protocol": "https",
+              "host": ["digital-wallet-jade", "vercel", "app"],
+              "path": ["api", "v1", "user", "68b030422bcce3dfbb82e180"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
