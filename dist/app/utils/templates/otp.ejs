@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        padding: 40px 20px;
+        color: #2d3748;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .email-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+      .header {
+        background: linear-gradient(135deg, #1a6fc4 0%, #0c4d8c 100%);
+        padding: 40px 30px;
+        text-align: center;
+        border-bottom: 8px solid #ff7e30;
+        position: relative;
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M1200 120L0 16.48 0 0 1200 0 1200 120z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: white;
+        margin-bottom: 10px;
+      }
+      .logo-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 28px;
+        color: #0c4d8c;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transform: rotate(10deg);
+      }
+      .logo-text {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .tagline {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 18px;
+        margin-top: 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .body-content {
+        padding: 50px 40px;
+      }
+      h2 {
+        color: #e53e3e;
+        margin-bottom: 25px;
+        font-size: 28px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 15px;
+      }
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: #ff7e30;
+        border-radius: 2px;
+      }
+      p {
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-size: 17px;
+        color: #4a5568;
+      }
+      .otp-container {
+        background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+        padding: 30px;
+        border-radius: 16px;
+        border-left: 8px solid #38b2ac;
+        margin: 35px 0;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .otp-code {
+        font-size: 46px;
+        letter-spacing: 12px;
+        font-weight: 800;
+        color: #0c4d8c;
+        padding: 15px;
+        margin: 20px 0;
+        background: white;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+      .validity {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2d3748;
+        margin-top: 15px;
+        display: inline-block;
+        padding: 8px 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 30px;
+      }
+      .warning {
+        background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+        padding: 25px;
+        border-radius: 12px;
+        border: 2px solid #fc8181;
+        margin: 30px 0;
+        font-size: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .warning strong {
+        color: #c53030;
+        font-size: 18px;
+      }
+      .footer {
+        background: linear-gradient(135deg, #0c4d8c 0%, #1a365d 100%);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M1200 120L0 16.48 0 0 1200 0 1200 120z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        transform: rotate(180deg);
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin: 25px 0;
+      }
+      .footer-links a {
+        color: #ff7e30;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .footer-links a:hover {
+        color: #fff;
+        text-decoration: underline;
+        transform: translateY(-2px);
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px 0;
+      }
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .social-icon:hover {
+        background: #ff7e30;
+        transform: translateY(-5px) scale(1.1);
+      }
+      .copyright {
+        margin-top: 25px;
+        font-size: 15px;
+        color: white;
+        line-height: 1.6;
+      }
+      .divider {
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          transparent 100%
+        );
+        margin: 30px 0;
+      }
+      .contact-info {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #e2e8f0;
+      }
+      .contact-info p {
+        margin-bottom: 8px;
+        color: #e2e8f0;
+      }
+      .button {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff7e30 0%, #ff5e00 100%);
+        color: white;
+        padding: 16px 35px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        margin: 20px 0;
+        box-shadow: 0 5px 15px rgba(255, 126, 48, 0.4);
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 126, 48, 0.6);
+      }
+      .info-box {
+        background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+        padding: 25px;
+        border-radius: 12px;
+        margin: 30px 0;
+        border-left: 8px solid #3182ce;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .info-box h3 {
+        color: #2b6cb0;
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">Moana Wallet</div>
+        </div>
+        <div class="tagline">Secure. Fast. Reliable Digital Transactions</div>
+      </div>
+
+      <!-- Email Body Content -->
+      <div class="body-content">
+        <h2>Hello <%= name %>,</h2>
+
+        <p>Your OTP code for Moana Wallet verification is:</p>
+
+        <div class="otp-container">
+          <div class="otp-code"><%= otp %></div>
+          <div class="validity">This code is valid for the next 2 minutes</div>
+        </div>
+
+        <p>Best regards,<br /><strong>Moana Wallet Team</strong></p>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer">
+        <div class="divider"></div>
+
+        <div class="contact-info">
+          <p>Moana Wallet Ltd.</p>
+
+          <p>support@moanawallet.com</p>
+        </div>
+
+        <div class="copyright">
+          <p>© 2025 Moana Wallet. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

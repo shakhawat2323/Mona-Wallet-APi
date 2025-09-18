@@ -71,7 +71,8 @@ const withdrawMoney = catchAsync(async (req: Request, res: Response) => {
 // Send Money
 
 const sendMoney = catchAsync(async (req: Request, res: Response) => {
-  const senderEmail = req.user?.walletEmail;
+  const senderEmail = (req.user as any)?.walletEmail;
+
   const { receiverEmail, amount } = req.body;
 
   const result = await WalletServices.sendMoney(

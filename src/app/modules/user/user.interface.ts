@@ -36,6 +36,7 @@ export interface IUser {
   status?: AgentActive;
   isActive?: IsActive;
   isVerified?: boolean;
+  walletEmail?: string;
   role: Role;
 
   wallet?: string;
