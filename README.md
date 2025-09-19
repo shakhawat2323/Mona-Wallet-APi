@@ -1,25 +1,44 @@
-# 📖 Digital Wallet API
+# 💳 Mona Wallet API
 
-A secure, modular, and role-based backend API for a **Digital Wallet System** (similar to **bKash/Nagad**) built with **Express.js** and **Mongoose**.
+A secure, scalable, and role-based backend API for a **Mona Wallet System** (similar to **bKash/Nagad**) built with **Express.js**, **TypeScript**, and **Mongoose**.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
 - 🔑 **JWT-based Authentication** (User, Agent, Admin roles)
 - 🛡 **Role-based Authorization**
 - 👛 **Automatic Wallet creation** on registration
-- 💰 **Core financial operations**: Top-up, Withdraw, Send Money, Cash-in, Cash-out
-- 📜 **Transaction history tracking**
-- 👑 **Admin controls**: Block/Unblock wallets, Approve/Suspend agents
+- 💸 **Core Financial Operations**: Top-up, Withdraw, Send Money, Cash-in, Cash-out
+- 📜 **Transaction History Tracking**
+- 👑 **Admin Controls**: Block/Unblock wallets, Approve/Suspend agents
+- 📧 **Email Verification & Password Reset**
+- ☁ **Cloudinary Integration** for profile and document uploads
+- ⚡ **Production-ready Deployment** (Vercel)
 
 ---
 
 ## 🚀 Live Demo
 
-🔗 **Live Project Link**: [Digital Wallet App](https://digital-wallet-jade.vercel.app)
+🔗 **Live API**: [Mona Wallet](https://mona-wallet.vercel.app)
 
-## 🔗 API Endpoints
+---
+
+## 🛠 Tech Stack
+
+| Layer      | Technology                        |
+| ---------- | --------------------------------- |
+| Backend    | Node.js, Express.js               |
+| Language   | TypeScript                        |
+| Database   | MongoDB + Mongoose                |
+| Validation | Zod                               |
+| Auth       | JWT + Google OAuth (Passport.js)  |
+| Deployment | Vercel                            |
+| Tools      | Postman, VS Code, MongoDB Compass |
+
+---
+
+## 📌 API Endpoints
 
 ### 🏠 Root
 
@@ -31,12 +50,26 @@ A secure, modular, and role-based backend API for a **Digital Wallet System** (s
 
 ### 🔑 Auth
 
-| Method | Endpoint                 | Description                |
-| ------ | ------------------------ | -------------------------- |
-| POST   | `/auth/login`            | Login with credentials     |
-| POST   | `/auth/get-verify-token` | Request email verification |
-| GET    | `/auth/access-token`     | Get new access token       |
-|  |
+| Method | Endpoint                 | Description                          |
+| ------ | ------------------------ | ------------------------------------ |
+| POST   | `/auth/register`         | Register new user                    |
+| POST   | `/auth/login`            | Login with credentials               |
+| POST   | `/auth/get-verify-token` | Request email verification token     |
+| POST   | `/auth/reset-password`   | Reset password                       |
+| GET    | `/auth/access-token`     | Get new access token (using refresh) |
+| POST   | `/auth/refresh-token`    | Generate new refresh token           |
+| POST   | `/auth/set-password`     | Set password for Google login user   |
+| POST   | `/auth/logout`           | Logout user and invalidate tokens    |
+| GET    | `/auth/google/callback`  | Google OAuth callback                |
+
+---
+
+### 🔑 OTP
+
+| Method | Endpoint      | Description            |
+| ------ | ------------- | ---------------------- |
+| POST   | `/otp/send`   | Register new user      |
+| POST   | `/otp/verify` | Login with credentials |
 
 ---
 
@@ -44,46 +77,54 @@ A secure, modular, and role-based backend API for a **Digital Wallet System** (s
 
 | Method | Endpoint                  | Description             |
 | ------ | ------------------------- | ----------------------- |
-| POST   | `/user/register`          | Register new user       |
-| GET    | `/user/get-all-users`     | List all users          |
-| GET    | `/user/request-for-agent` | Request to become agent |
-| PATCH  | `/user/update-to-agent`   | Update role to Agent    |
+| GET    | `/user/profile`           | Get logged-in user      |
 | PATCH  | `/user/edit`              | Edit profile            |
+| POST   | `/user/request-for-agent` | Request to become agent |
+| PATCH  | `/user/update-to-agent`   | Update role to Agent    |
 | GET    | `/user/:id`               | Get single user         |
 
 ---
 
-### 💰 Agent
+### 💰 Wallet
 
-| Method | Endpoint           | Description    |
-| ------ | ------------------ | -------------- |
-| POST   | `/Agent /cash-in`  | Agent cash-in  |
-| POST   | `/Agent /cash-out` | Agent cash-out |
+| Method | Endpoint              | Description     |
+| ------ | --------------------- | --------------- |
+| GET    | `/wallet/:id`         | Get wallet info |
+| PATCH  | `/wallet/block/:id`   | Block wallet    |
+| PATCH  | `/wallet/unblock/:id` | Unblock wallet  |
+| POST   | `/wallet/send-money`  | Send money      |
+| POST   | `/wallet/top-up`      | Add balance     |
 
 ---
 
-### 👛 Wallet
+### 💼 Agent
 
 | Method | Endpoint              | Description    |
 | ------ | --------------------- | -------------- |
-| PATCH  | `/wallet/block/:id`   | Block wallet   |
-| PATCH  | `/wallet/unblock/:id` | Unblock wallet |
+| POST   | `/agent/cash-in`      | Agent cash-in  |
+| POST   | `/agent/cash-out`     | Agent cash-out |
+| GET    | `/agent/transactions` | Agent history  |
 
 ---
 
 ### 👑 Admin
 
-| Method | Endpoint                    | Description          |
-| ------ | --------------------------- | -------------------- |
-| GET    | `/admin/users`              | Get all users        |
-| GET    | `/admin/agents`             | Get all agents       |
-| GET    | `/admin/wallets`            | Get all wallets      |
-| GET    | `/admin/transactions`       | Get all transactions |
-| PATCH  | `/admin/agents/approve/:id` | Approve agent        |
-| PATCH  | `/admin/agents/suspend/:id` | Suspend agent        |
-| PATCH  | `/admin/users/role/:id`     | Convert User ⇆ Agent |
+| Method | Endpoint                    | Description                         |
+| ------ | --------------------------- | ----------------------------------- |
+| GET    | `/admin/users`              | Get all users                       |
+| GET    | `/admin/agents`             | Get all agents                      |
+| GET    | `/admin/wallets`            | Get all wallets                     |
+| GET    | `/admin/transactions`       | Get all transactions                |
+| PATCH  | `/admin/agents/approve/:id` | Approve an agent                    |
+| PATCH  | `/admin/agents/suspend/:id` | Suspend an agent                    |
+| PATCH  | `/admin/users/role/:id`     | Convert User to Agent or vice versa |
+| PATCH  | `/admin/users/:id`          | Update user details or role         |
+| PATCH  | `/admin/blockwallet/:id`    | Block a user's wallet               |
+| PATCH  | `/admin/unblockwallet/:id`  | Unblock a user's wallet             |
 
 ---
+
+## 📝 Example Request
 
 ## 📌 User Registration API
 
@@ -97,8 +138,8 @@ POST /api/v1/user/register
 
 ```http
 {
-  "email": "Shakhawatislam@gmail.com",
-  "password": "Shakhawat423*"
+  "email": "Monawallet@gmail.com",
+  "password": "Monawallet2323**"
 }
 
 ```
@@ -141,15 +182,3 @@ POST /api/v1/user/register
 }
 
 ```
-
-### 🛠 Tech Stack
-
-| Layer      | Technology                        |
-| ---------- | --------------------------------- |
-| Backend    | Node.js, Express.js               |
-| Language   | TypeScript                        |
-| Database   | MongoDB + Mongoose                |
-| Validation | Zod                               |
-| OAuth      | Google OAuth + Passport.js        |
-| Deployment | Vercel                            |
-| Tools      | Postman, VS Code, MongoDB Compass |
